@@ -1,4 +1,5 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface AppProps {
         name: string,
@@ -17,7 +18,7 @@ export const Card =  (props:AppProps) =>  {
                         <img src={image} className="w-full h-32 object-cover" alt="card_header"/>
                         <div className="grid grid-cols-3 gap-2 px-5">
                                 <div className="flex -mt-8 justify-center">
-                                        <img src={profile_pic} className="w-28 h-28 object-cover rounded-full border-solid border-white border-2 -mt-3"  alt="profile_picture"/>		
+                                        <LazyLoadImage src={profile_pic} className="w-28 h-28 object-cover rounded-full border-solid border-white border-2 -mt-3"  alt="profile_picture"/>		
                                 </div>
                                 <div className="col-span-2 pb-6 pt-2">
                                         <div className="flex justify-between">

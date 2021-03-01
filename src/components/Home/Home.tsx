@@ -13,14 +13,11 @@ export const Home = (props:AppProps) => {
     const { t } = useTranslation();
     const { data } = useContext(FetchStore);
     const {fetchData} = props;
-
-    console.log(data)
-
     useEffect(() => {
         fetchData();
           return () => {
           }
-      }, [fetchData])
+      }, [])
 
     return (
         <div className="App">

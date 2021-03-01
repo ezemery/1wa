@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import logo from '../../logo.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const Header = () =>  {
     const [profileVisible, setProfileVisible] = useState(false);
@@ -14,7 +15,7 @@ export const Header = () =>  {
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center">
           <div className="flex-shrink-0">
-            <img className="h-8 object-cover" src={logo} alt="Workflow"/>
+            <LazyLoadImage className="h-8 object-cover" src={logo} alt="Workflow"/>
           </div>
         </div>
         <div className="sm:flex mt-10 mx-10 sm:mt-0 sm:mx-0 relative">
@@ -76,7 +77,7 @@ export const Header = () =>  {
               <div>
                 <button className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
                   <span className="sr-only">Open user menu</span>
-                  <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="profile"/>
+                  <LazyLoadImage className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="profile"/>
                 </button>
               </div>
               <div className={` ${profileVisible ? `block`: `hidden`} origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5`} role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
@@ -107,7 +108,7 @@ export const Header = () =>  {
       <div className="pt-4 pb-3 border-t border-gray-700">
         <div className="flex items-center px-5">
           <div className="flex-shrink-0">
-            <img className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="profile"/>
+            <LazyLoadImage className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="profile"/>
           </div>
           <div className="ml-3">
             <div className="text-base font-medium leading-none text-white">Tom Cook</div>
