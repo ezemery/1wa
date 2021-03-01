@@ -2,6 +2,7 @@ import React,  { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { I18nextProvider } from 'react-i18next';
+import { ThemeProvider } from "./components/Theme"
 import {
   BrowserRouter,
 } from "react-router-dom";
@@ -15,7 +16,9 @@ ReactDOM.render(
     <Suspense fallback="...">
       <React.StrictMode>
       <I18nextProvider i18n={i18n}>
+      <ThemeProvider>
           <App />
+        </ThemeProvider>
       </I18nextProvider>
       </React.StrictMode>
     </Suspense>

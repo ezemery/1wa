@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* :root {
+    @apply .light;
+  } */
+  
+  .dark {
+    --color-bg-primary: #1C1C24;
+    --color-bg-secondary: #292932;
+    --color-text-primary: #FAFAFB;
+    --color-text-secondary: #92929D;
+    --color-text-accent: #0062FF;
+  }
+  
+  .light {
+    --color-bg-primary: ##E5E5E5;
+    --color-bg-secondary: #FAFAFB;
+    --color-text-primary: #171725;
+    --color-text-secondary: #92929D;
+    --color-text-accent: #0062FF;
+  }
+
+  .toggle-checkbox:checked {
+    @apply: right-0 border-dark-400;
+    right: 0;
+    border-color: #615c5c;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply: bg-dark-400;
+    background-color: #615c5c;
+  }
+

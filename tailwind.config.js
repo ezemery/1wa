@@ -4,7 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        "custom-blue": "#0062FF",
+        primary: "var(--color-bg-primary)",
+        secondary: "var(--color-bg-secondary)",
+        accent: "var(--color-text-accent)"
+      },
+      backgroundColor: {
+        primary: "var(--color-bg-primary)",
+        secondary: "var(--color-bg-secondary)",
+        accent: "var(--color-text-accent)"
+      },
+      textColor: {
+        accent: "var(--color-text-accent)",
+        primary: "var(--color-text-primary)",
+        secondary: "var(--color-text-secondary)",
       },
     }
     },

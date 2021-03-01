@@ -2,6 +2,7 @@ import {Home} from './components/Home'
 import {Profile} from './components/Profile'
 import {FetchStore} from './Context/store';
 import {useFetch} from "./Hooks/fetch.hook";
+
 import {
   Switch,
   Route,
@@ -19,7 +20,9 @@ function App() {
   }
 
   return (
+    
     <FetchStore.Provider value={fetchContext}>
+      
       <Switch>
           <Route exact path="/">
             <Home fetchData={fetchData}/>
@@ -30,6 +33,7 @@ function App() {
         </Switch>
       
     </FetchStore.Provider>
+   
    
   );
 }
