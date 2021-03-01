@@ -8,7 +8,7 @@ export interface Data {
     profile_pic?:string   
 }
 
-export interface FetchState {
+export interface FetchInterface {
     data:Data[],
     error:boolean,
     isLoading:boolean,

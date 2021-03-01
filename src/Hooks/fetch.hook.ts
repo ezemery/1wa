@@ -1,21 +1,21 @@
-import {useReducer, ReducerAction} from 'react';
+import {useReducer} from 'react';
 import {getFriends} from "../services";
-import {FetchState, Data} from '../Context/states/fetch'
+import {FetchInterface} from '../Context/states/fetch'
 
-interface actionInterface {
-    data?:Data[],
-    type:string
-}
+// interface actionInterface {
+//     data?:Data[],
+//     type:string
+// }
 
 
-const initialState:FetchState = {
+const initialState:FetchInterface = {
     data: [],
     isLoading: false,
     error: false,
 };
 
 
-function fetchReducer(state:FetchState = initialState, action:any) {
+function fetchReducer(state:FetchInterface = initialState, action:any) {
     switch (action.type) {
         case 'success':
             return {...state, data: action.data}

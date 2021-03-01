@@ -1,4 +1,3 @@
-import React,{ useEffect ,useState} from 'react';
 import {Home} from './components/Home'
 import {Profile} from './components/Profile'
 import {FetchStore} from './Context/store';
@@ -18,7 +17,7 @@ function App() {
   const fetchData:() => void = () => {
     fetchContext.fetchDataAsync()
   }
-  
+
   return (
     <FetchStore.Provider value={fetchContext}>
       <Switch>

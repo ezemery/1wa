@@ -1,8 +1,8 @@
-import {useContext, useState,useEffect} from 'react'
+import {useContext,useEffect} from 'react'
 import {Header} from '../Header'
 import {FetchStore} from '../../Context/store';
 import { useTranslation } from "react-i18next";
-import {Data} from '../../Context/states/fetch'
+
 import {Card} from '../Card'
 
 interface AppProps {
@@ -20,7 +20,7 @@ export const Home = (props:AppProps) => {
         fetchData();
           return () => {
           }
-      }, [])
+      }, [fetchData])
 
     return (
         <div className="App">

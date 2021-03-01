@@ -10,7 +10,7 @@ interface AppProps {
 }
 
 export const Card =  (props:AppProps) =>  {
-        const {name, username, email, desc, image, profile_pic} = props;
+        const {name, username, desc, image, profile_pic} = props;
         return (
         <div>
                 <div className="rounded rounded-t-lg overflow-hidden shadow w-full my-3">
