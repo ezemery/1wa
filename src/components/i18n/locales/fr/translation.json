@@ -2,5 +2,15 @@
     "select_language": "Choisir la langue",
     "hello_welcome_to_react": "Bonjour, Bienvenue chez React",
     "this_is_an_example": "Ceci est un exemple",
-    "please_enter_name": "Veuillez saisir le nom"
+    "please_enter_name": "Veuillez saisir le nom",
+    "Following":"Suivante",
+    "Follow":"Suivre",
+    "friends_list":"Liste d'amis",
+    "friend_details":"Détails des amis",
+    "information":"Informations",
+    "details":"Détails personnels",
+    "name":"Nom complet",
+    "email":"Adresse e-mail",
+    "username":"Nom d'utilisateur",
+    "about":"Description"
   }

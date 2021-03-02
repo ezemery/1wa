@@ -29,7 +29,7 @@ export const Home = (props:AppProps) => {
             <header className="bg-secondary">
                 <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <h1 className="text-2xl font-bold text-primary">
-                {t('hello_welcome_to_react')}
+                {t('friends_list')}
                 </h1>
                 </div>
             </header>

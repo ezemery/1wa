@@ -9,16 +9,16 @@ export interface Data {
     checked:boolean  
 }
 
-export interface FetchInterface {
+export interface SearchInterface {
     data:Data[],
     error:boolean,
     isLoading:boolean,
 }
 
-const FetchState:FetchInterface = {
+const SearchState:SearchInterface = {
     data:[],
     error:false,
     isLoading: false,
 }
 
-export default FetchState;
+export default SearchState;

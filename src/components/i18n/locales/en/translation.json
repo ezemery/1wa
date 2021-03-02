@@ -2,5 +2,14 @@
     "select_language": "Select Language",
     "hello_welcome_to_react": "Hello, Welcome to Reaaact",
     "this_is_an_example": "This is an example",
-    "please_enter_name": "Please enter your name"
+    "please_enter_name": "Please enter your name",
+    "Following":"Following",
+    "Follow":"Follow",
+    "friends_list":"Friends List",
+    "information":"Information",
+    "details":"Personal details",
+    "name":"Full name",
+    "email":"Email address",
+    "username":"Username",
+    "about":"Description"
   }
