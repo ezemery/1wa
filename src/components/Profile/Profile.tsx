@@ -21,6 +21,7 @@ export const  Profile = (props:AppProps) => {
     useEffect(() => {
         searchData(query)
           return () => {}
+           // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [query])
 
     return (
