@@ -11,11 +11,12 @@ interface AppProps {
         desc:string ,
         image:string,
         profile_pic:string,
-        checked:boolean  
+        checked:boolean,
+        setChecked:(value:string)=>void 
 }
 
 export const Card =  (props:AppProps) =>  {
-        const {name, username, desc, image, profile_pic, checked} = props;
+        const {name, username, desc, image, profile_pic, checked, setChecked} = props;
         const { t } = useTranslation();
         let history = useHistory();
         const switchRoute  = (param:string) =>{
@@ -32,7 +33,7 @@ export const Card =  (props:AppProps) =>  {
                                 <div className="col-span-2 pb-6 pt-2">
                                         <div className="flex justify-between">
                                         <h4 className="text-primary text-lg font-bold font-sans" onClick={()=>switchRoute(username)}>{name}</h4>
-                                        <button type="submit" className={checked  ? `group relative w-32 flex justify-between py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2`:
+                                        <button type="submit" onClick={()=>setChecked(username)}className={checked  ? `group relative w-32 flex justify-between py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2`:
                                         `group relative w-32 flex justify-center py-2 px-4 border border-accent text-sm font-medium rounded-md text-accent bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2`}>
                                                 <span>{checked? `${t('Following')}`:`${t('Follow')}`}</span>
                                                 {checked && <span className="flex justify-center items-center">

@@ -4,6 +4,7 @@ import {FetchStore} from './Context/store';
 import {SearchStore} from './Context/store';
 import {useFetch} from "./Hooks/fetch.hook";
 import {useSearch} from "./Hooks/search.hook";
+import {Data} from './Context/states/fetch'
 
 import {
   Switch,
@@ -14,12 +15,14 @@ function App() {
   const fetchContext = useFetch();
   const SearchContext = useSearch();
 
-  // useEffect(()=> {
-  //   window.localStorage.setItem("options", JSON.stringify(["Hello"]));
-  // })
+  
 
   const fetchData:() => void = () => {
     fetchContext.fetchDataAsync()
+  }
+
+  const setData:(value:Data[], data:Data[]) => void = (value, data) => {
+    fetchContext.setDataAsync(value, data)
   }
 
   const searchData:(query:string) => void = (query) => {
@@ -32,7 +35,7 @@ function App() {
       <SearchStore.Provider value={SearchContext}>
       <Switch>
           <Route exact path="/">
-            <Home fetchData={fetchData}/>
+            <Home fetchData={fetchData} setData={setData}/>
           </Route>
           <Route path="/profile/:query">
             <Profile searchData={searchData}/>

@@ -1,6 +1,7 @@
 import {useReducer} from 'react';
-import {getFriends} from "../services";
+import {getFriends, setFriends} from "../services";
 import {FetchInterface} from '../Context/states/fetch'
+import {Data} from  '../Context/states/fetch'
 
 // interface actionInterface {
 //     data?:Data[],
@@ -23,6 +24,8 @@ function fetchReducer(state:FetchInterface = initialState, action:any) {
             return {...state, isLoading:false}
         case 'loadingStart':
             return {...state, isLoading:true}
+        case 'update':
+            return {...state, data: action.friends }
         case 'error':
             return {...state, error:true}
         default:
@@ -45,9 +48,22 @@ export const useFetch = () => {
         }
     };
 
+    const setDataAsync = async (value:Data[],data:Data[]) => {
+        setState({type: 'loadingStart'})
+        try {
+            const friends = await setFriends(data);
+            setState({type: 'update', friends,value})
+            setState({type: 'loadingComplete'})
+        } catch (error) {
+            setState({type: 'error'})
+            setState({type: 'loadingComplete'})
+        }
+    };
+
 
     return {
         ...s,
-        fetchDataAsync
+        fetchDataAsync,
+        setDataAsync
     };
 }

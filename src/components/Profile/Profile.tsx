@@ -17,7 +17,6 @@ export const  Profile = (props:AppProps) => {
     const {query} = useParams<ParamTypes>();
     const { t } = useTranslation();
     const { data } = useContext(SearchStore);
-    console.log(data)
     useEffect(() => {
         searchData(query)
           return () => {}

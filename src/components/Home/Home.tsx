@@ -1,28 +1,51 @@
  
-import {useContext,useEffect} from 'react'
+import {useContext,useEffect, useState} from 'react'
 import {Header} from '../Header'
 import {FetchStore} from '../../Context/store';
 import { useTranslation } from "react-i18next";
+import {Data} from '../../Context/states/fetch'
 
 import {Card} from '../Card'
 
 interface AppProps {
     fetchData: () => void,
+    setData:(value:Data[], data:Data[])=>void,
 }
 
 export const Home = (props:AppProps) => {
     const { t } = useTranslation();
     const { data } = useContext(FetchStore);
-    const {fetchData} = props;
+    const  [state, updateState] = useState<Data[]>([])
+    const {fetchData,setData} = props;
 
-   
-    useEffect(() => {
+    useEffect(()=> {
         fetchData();
-        return () => {
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+      },[])
 
+  
+   useEffect(()=> {
+    const options  = window.localStorage.getItem("friendsList");
+    if(options){
+        if(options.length > 0){
+            const parse:Data[] = JSON.parse(options)
+            updateState(parse);
+        }
+    }else{
+        updateState(data);
+         window.localStorage.setItem("friendsList", JSON.stringify(data));
+    }
+  },[data])
+
+
+    const setChecked = (value:string)=> {
+        const filter = data.filter((item) => {
+            return item.username  === value;
+        })
+        filter[0].checked = !filter[0].checked;
+        updateState([...data,...filter])
+        setData(filter, data)
+    }
     return (
         <div className="App">
             <Header/>
@@ -34,9 +57,9 @@ export const Home = (props:AppProps) => {
                 </div>
             </header>
             <main className="bg-secondary min-h-screen">
-                <div className=" max-w-7xl mx-auto py-6 sm:px-6  lg:px-8">
+                <div className="container px-4 max-w-7xl mx-auto py-6 sm:px-6  lg:px-8">
                 <div className="grid  sm:grid-cols-1 md:grid-cols-2 gap-4">
-                    {data &&  data.map((value,indx) =>  {
+                    {state &&  state.map((value,indx) =>  {
                         const {name, username, email, desc, image, profile_pic,checked} = value;
                         return <Card 
                         key={indx} 
@@ -47,6 +70,7 @@ export const Home = (props:AppProps) => {
                         image={image} 
                         profile_pic={profile_pic} 
                         checked={checked}
+                        setChecked={setChecked}
                         />
                     })}
                   
