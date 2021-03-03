@@ -26,10 +26,15 @@ export const Home = (props:AppProps) => {
   
    useEffect(()=> {
     const options  = window.localStorage.getItem("friendsList");
+    console.log("state",data)
+    console.log("data",data)
     if(options){
-        if(options.length > 0){
-            const parse:Data[] = JSON.parse(options)
+        const parse:Data[] = JSON.parse(options)
+        if(parse.length > 0){
             updateState(parse);
+        }else{
+            updateState(data);
+            window.localStorage.setItem("friendsList", JSON.stringify(data));
         }
     }else{
         updateState(data);
